@@ -6,6 +6,12 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: mc-overviewer
+  WORKING_DIRECTORY: 'images/mc-overviewer'
+
+defaults:
+  run:
+    working-directory: ./images/mc-overviewer
+
 
 jobs:
   build-and-push-image:
@@ -38,7 +44,7 @@ jobs:
         id: push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
-          context: .
+          context: ./${{ env.WORKING_DIRECTORY }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
