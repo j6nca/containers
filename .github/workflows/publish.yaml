@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/mc-overviewer
+  IMAGE_NAME: ${{ github.repository }}/mc-overviewer
   WORKING_DIRECTORY: 'images/mc-overviewer'
 
 defaults:
