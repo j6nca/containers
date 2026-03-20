@@ -1,0 +1,27 @@
+name: Build loki-mcp image
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Repo ref to checkout"
+        required: true
+        default: "main"
+        type: string
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
+jobs:
+  build-docker-image:
+    uses: j6nca/actions/.github/workflows/image-build.yml@main
+    with:
+      # push: ${{ github.event_name != 'pull_request' }}
+      # dockerfile-path: ./Dockerfile
+      # build-path: ./
+      # architectures: amd64,arm64
+      # image-name: loki-mcp
+      checkout-repository: grafana/loki-mcp
+      checkout-ref: ${{ inputs.ref }}
+      checkout-fetch-depth: 0
