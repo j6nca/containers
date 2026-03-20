@@ -22,6 +22,6 @@ jobs:
       # build-path: ./
       # architectures: amd64,arm64
       # image-name: loki-mcp
-      checkout-repository: grafana/loki-mcp
-      checkout-ref: ${{ inputs.ref }}
-      checkout-fetch-depth: 0
+      repository: grafana/loki-mcp
+      ref: ${{ inputs.ref }}
+      fetch-depth: 0
