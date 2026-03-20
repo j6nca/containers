@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build-docker-image:
-    uses: j6nca/actions/.github/workflows/image-build.yml@main
+    uses: j6nca/actions/.github/workflows/image-build.yaml@main
     with:
       # push: ${{ github.event_name != 'pull_request' }}
       # dockerfile-path: ./Dockerfile
